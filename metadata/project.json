@@ -1,0 +1,32 @@
+{
+  "index": 191,
+  "phase": 2,
+  "batch": 22,
+  "name": "nexus-data-quality-hub",
+  "planned_name": "nexus-data-quality-hub",
+  "language": "C++",
+  "category": "Data engineering",
+  "goal": "Build a C++ toolkit that studies quality behavior through capacity fixtures, with allocation and spill reports and offline replay mode.",
+  "repository_url": "https://github.com/ZachL111/nexus-data-quality-hub",
+  "verification_command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify.ps1",
+  "model": {
+    "inputs": [
+      "demand",
+      "capacity",
+      "latency",
+      "risk",
+      "weight"
+    ],
+    "threshold": 182,
+    "risk_penalty": 7,
+    "latency_penalty": 3,
+    "weight_bonus": 4,
+    "decision_rule": "accept when score is greater than or equal to threshold, otherwise review"
+  },
+  "quality_gates": [
+    "readme constraint scan",
+    "fixture presence check",
+    "metadata JSON parse",
+    "language verifier"
+  ]
+}
